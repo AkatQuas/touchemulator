@@ -1,0 +1,7 @@
+.box {
+  border: 2px solid steelblue;
+  display: inline-block;
+  margin: 10px;
+  width: 400px;
+  height: 200px;
+}

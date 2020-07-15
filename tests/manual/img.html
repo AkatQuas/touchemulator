@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
+  <head lang="en">
+    <meta charset="UTF-8" />
     <title></title>
 
     <script src="../../touch-emulator.js"></script>
-    <script> TouchEmulator(); </script>
-</head>
-<body>
-    no dragging of images;<br>
-    <img src="http://people.ucsc.edu/~ddiep1/puppy.jpg">
-</body>
+    <script>
+      TouchEmulator();
+    </script>
+  </head>
+  <body>
+    <p>
+      dragging of images;<br />
+      <img src="../puppy.jpeg" style="width: 200px; height: auto;" />
+    </p>
+    <br />
+    <p>
+      no dragging of images;<br />
+      <img
+        src="../puppy.jpeg"
+        style="width: 200px; height: auto;"
+        data-emulate-touch="on"
+      />
+    </p>
+  </body>
 </html>

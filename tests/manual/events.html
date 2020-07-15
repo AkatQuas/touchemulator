@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title>Mannual - Events</title>
 
     <script src="../../touch-emulator.js"></script>
-    <script> TouchEmulator(); </script>
-</head>
-<body>
+    <link rel="stylesheet" href="../style.css" />
+    <script>
+      TouchEmulator();
+    </script>
+  </head>
+  <body>
+    <div id="hitarea" class="box" data-emulate-touch="on">
+      Check the console. No mouseevents should be fired, only touchevents. Click
+      events are allowed.
+    </div>
 
-    <div id="hitarea" style="background: silver; height: 400px;">
-            Check the console. No mouseevents should be fired, only touchevents. Click events are allowed.
+    <div id="hitarea2" class="box">
+      Check the console. No touchevents should be fired, only mouseevents. Click
+      events are allowed.
     </div>
 
     <script>
+      function log(ev) {
+        console.log(ev.type, ev);
+      }
 
-        function log(ev) {
-            console.log(ev.type, ev);
-        }
+      window.onload = function () {
+        const ids = ['hitarea', 'hitarea2'];
+        ids.forEach((id) => {
+          var hitarea = document.getElementById(id);
 
-        var hitarea = document.getElementById('hitarea');
+          var events = [
+            'touchstart',
+            'touchmove',
+            'touchend',
+            'touchcancel',
+            'mousedown',
+            'mouseenter',
+            'mouseleave',
+            'mousemove',
+            'mouseout',
+            'mouseover',
+            'mouseup',
+            'mousewheel',
+            'click',
+          ];
 
-        var events = ['touchstart','touchmove','touchend','touchcancel',
-                        'mousedown','mouseenter','mouseleave','mousemove',
-                        'mouseout','mouseover','mouseup','mousewheel',
-                        'click'];
-
-        for(var i=0; i<events.length; i++) {
+          for (var i = 0; i < events.length; i++) {
             hitarea.addEventListener(events[i], log, false);
-        }
-
+          }
+        });
+      };
     </script>
-</body>
+  </body>
 </html>
